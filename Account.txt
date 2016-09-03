@@ -1,0 +1,43 @@
+package com.Banking;
+
+import java.util.ArrayList;
+
+public class Account
+{
+  protected double balance;
+ 
+  
+ 
+public Account(double balance)
+{
+	super();
+	this.balance = balance;
+}
+
+public double getBalance()
+{
+	return balance;
+}
+
+public boolean deposit(double amount)
+{
+	balance+=amount;
+	return true;
+}
+
+public void withdraw(double amount)
+{
+	if(amount<balance)
+		{
+		balance=balance-amount;
+		
+		}
+	else
+		{
+		 throw new OverdraftException("Insufficient Balance!", (amount-balance));
+		}
+}
+
+
+
+}

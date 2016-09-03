@@ -1,0 +1,45 @@
+package com.Banking;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Bank
+{
+	private List<Customer>customerArray;
+	
+
+	public List<Customer> getCustomerArray()
+	{
+		return customerArray;
+	}
+	public void setCustomerArray(List<Customer> customerArray)
+	{
+		this.customerArray = customerArray;
+	}
+	
+	public void addCustomer(Customer customer)
+	{
+		customerArray.add(customer);
+		
+	}
+	public Iterator<Customer>customerIteration()
+	{
+		return customerArray.iterator();
+	}
+
+	
+	
+   private Bank()
+   {
+	   customerArray=new ArrayList<Customer>();
+   }
+	
+  private static Bank bankInstance=new Bank();	
+  public static Bank getBank()
+  {
+	  return bankInstance;
+  }
+  
+  
+}

@@ -1,0 +1,63 @@
+package com.Banking;
+
+import java.util.Iterator;
+
+public class CustomerReport
+{
+	
+	public void generateReport()
+	
+	{   Bank bank=Bank.getBank();
+	    
+		System.out.println("--------------Customer Report--------------");
+		
+	//Option1: using Iterator
+		Iterator<Customer> CustomerIt=bank.customerIteration();
+		while(CustomerIt.hasNext())
+		{
+			Customer customer=CustomerIt.next();
+			System.out.println(customer.getFirstName()+" "+customer.getFirstName());
+			
+			Iterator<Account>AccountIt=customer.accountIteration();
+			while(AccountIt.hasNext())
+			{
+				Account account=AccountIt.next();
+				String accountType="";
+				if(account instanceof CheckingAccount)
+					accountType="Checking Account";
+				if(account instanceof SavingAccount)
+					accountType="Saving Account";
+				System.out.println(accountType+": the current balance is: "+account.getBalance());
+			}
+			
+		}
+       //Option 2: using for loop
+//		for(int i=0;i<bank.getCustomerArray().size();i++)
+//		{
+//			System.out.println("Customer: "+bank.getCustomerArray().get(i).getFirstName()+" "+
+//					bank.getCustomerArray().get(i).getLastName());
+//			 for(int j=0;j<bank.getCustomerArray().get(i).getAccount().size();j++)
+//			 {
+//				 String accountType=""
+//;				 Account account=bank.getCustomerArray().get(i).getAccount().get(j);
+//                 if(account instanceof CheckingAccount)
+//                 {
+//                	 accountType="Checking Account";
+//                 }
+//                 else if(account instanceof SavingAccount)
+//                 {
+//                	 accountType="Saving Account";
+//                 }
+//                
+//               System.out.println(accountType+": current balance is "+account.getBalance());  
+//			 }
+//		}
+	}}
+	
+	
+	
+
+
+	
+
+

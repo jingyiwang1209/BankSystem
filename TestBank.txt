@@ -1,0 +1,234 @@
+package com.Banking;
+
+import java.util.Iterator;
+
+public class TestBank
+{
+
+	public static void main(String[] args)
+	{
+		
+		//Bank 08;
+		Bank bank=Bank.getBank();
+		Customer customer;
+		bank.addCustomer(new Customer("Jane", "Smith"));
+		customer=bank.getCustomerArray().get(0);
+		customer.addAccount(new SavingAccount(500, 0.05));
+		customer.addAccount(new CheckingAccount(200.00, 400.00));
+		
+		
+		
+		bank.addCustomer(new Customer("Owen", "Bryant"));
+		customer=bank.getCustomerArray().get(1);
+		customer.addAccount(new CheckingAccount(200.00));
+		
+		
+		
+		
+		bank.addCustomer(new Customer("Tim", "Soley"));
+		customer=bank.getCustomerArray().get(2);
+		customer.addAccount(new SavingAccount(1500.00, 0.05));
+		customer.addAccount(new CheckingAccount(200.00));
+		
+		
+		
+		//co-checking account with Tim.
+		bank.addCustomer(new Customer("Maria", "Soley"));
+		customer=bank.getCustomerArray().get(3);
+		customer.addAccount(new CheckingAccount(200.00));
+		customer.addAccount(bank.getCustomerArray().get(2).getAccount().get(1));
+		
+		CustomerReport cr=new CustomerReport();
+		cr.generateReport();
+		
+		
+	
+
+		
+		
+		
+	
+		
+		
+		/* Banking 01:
+		 * Creating an account with a 500.00 balance
+          Withdraw 150.00
+          Deposit 22.50
+          Withdraw 47.62
+          The account has a balance of 324.88*/
+		
+//		Account account=new Account(500.00);
+//		System.out.println("Creating an account with a "+account.getBalance()+" balance");
+//		account.withdraw(150.00);
+//		account.deposit(22.50);
+//		account.withdraw(47.62);
+//		System.out.println("The account has a balance of "+ account.getBalance());
+
+		
+		/*Bank 02:
+		 *Creating the customer Jane Smith.
+          Creating her account with a 500.00 balance.
+          Withdraw 150.00
+          Deposit 22.50
+          Withdraw 47.62
+          Customer [Smith, Jane] has a balance of 324.88
+		 */
+		
+//		Customer customer=new Customer("Jane","Smith");
+//		Account account=new Account(500.00);
+//		customer.setAccount(account);
+//		System.out.println("Creating her account with a "+customer.getAccount().getBalance()+ " balance");
+//		customer.getAccount().withdraw(150);
+//		customer.getAccount().deposit(22.50);
+//		customer.getAccount().withdraw(47.62);
+//		System.out.println("Customer "+customer+" has a balance of "+customer.getAccount().getBalance());
+		
+		
+		/* Bank 03:
+		 * Creating the customer Jane Smith.
+           Creating her account with a 500.00 balance. 
+           Withdraw 150.00: true
+           Deposit 22.50: true 
+           Withdraw 47.62: true 
+           Withdraw 400.00: false
+           Customer [Smith, Jane] has a balance of 324.88
+		 */
+		
+//		Customer customer=new Customer("Jane","Smith");
+//		Account account=new Account(500.00);
+//		customer.setAccount(account);
+//		System.out.println("Creating her account with a "+customer.getAccount().getBalance()+ "balance");
+//		System.out.println("Withdraw 150: "+customer.getAccount().withdraw(150.00));
+//		customer.getAccount().deposit(22.50);
+//		customer.getAccount().withdraw(47.62);
+//		customer.getAccount().withdraw(400.00);
+//		System.out.println("Customer "+customer+" has a balance of "+customer.getAccount().getBalance() );
+		
+		/* Bank 04:
+		 * Customer [1] is Simms,Jane
+           Customer [2] is Bryant,Owen
+           Customer [3] is Soley,Tim
+           Customer [4] is Soley,Maria
+		 */
+//		Bank bank=new Bank();
+//		bank.addCustomer(new Customer("Simms", "Jane"));
+//		bank.addCustomer(new Customer("Bryant", "Owne"));
+//		bank.addCustomer(new Customer("Soley", "Tim"));
+//		bank.addCustomer(new Customer("Soley", "Maria"));
+//		//bank.getInfo();
+//		Iterator<Customer> it=bank.customerIteration();
+//		while(it.hasNext())
+//		{
+//			Customer cs=it.next();
+//			System.out.println(cs);
+//		}
+		
+		
+		/*
+		 * Bank 05:
+		 * System.out.println("Creating the customer Jane Smith.");
+		 * System.out.println("Creating her Savings Account with a 500.00 balance and 3% interest.");
+		 * System.out.println("Creating the customer Owen Bryant.");
+		 * System.out.println("Creating his Checking Account with a 500.00 balance and no overdraft protection.");
+		 * System.out.println("Creating the customer Tim Soley.");
+		 * System.out.println("Creating his Checking Account with a 500.00 balance and 500.00 in overdraft protection.");
+		 * System.out.println("Creating the customer Maria Soley.");
+		 * System.out.println("Maria shares her Checking Account with her husband Tim.");
+		 * 
+		 * 
+		 * System.out.println("Retrieving the customer Jane Smith with her savings account.");
+
+		// Perform some account transactions
+		System.out.println("Withdraw 150.00: " + account.withdraw(150.00));
+		System.out.println("Deposit 22.50: " + account.deposit(22.50));
+		System.out.println("Withdraw 47.62: " + account.withdraw(47.62));
+		System.out.println("Withdraw 400.00: " + account.withdraw(400.00));
+		
+		
+		System.out.println("Retrieving the customer Owen Bryant with his checking account with no overdraft protection.");
+		
+		// Perform some account transactions
+		System.out.println("Withdraw 150.00: " + account.withdraw(150.00));
+		System.out.println("Deposit 22.50: " + account.deposit(22.50));
+		System.out.println("Withdraw 47.62: " + account.withdraw(47.62));
+		System.out.println("Withdraw 400.00: " + account.withdraw(400.00));
+		 */
+		
+		
+//		Bank bank=new Bank();
+//		
+//		Customer cs1=new Customer("Jane", "Smith",new SavingAccount(500.00, 0.03));
+//		Customer cs2=new Customer("Owen", "Bryant",new CheckingAccount(500.00, 0.0));
+//		Customer cs3=new Customer("Tim", "Soley",new CheckingAccount(500.00, 500.00));
+//		Customer cs4=new Customer("Maria", "Soley",new CheckingAccount(500.00, 500.00));
+//		bank.addCustomer(cs1);
+//		bank.addCustomer(cs2);
+//		bank.addCustomer(cs3);
+//		bank.addCustomer(cs4);
+//		
+//		
+//		System.out.println("-----------------------------------------------------------");
+//		System.out.println("Retrieving the customer Jane Smith with her saving account.");
+//		System.out.println("Withdraw 150.00: " + bank.getCustomerArray().get(0).getAccount().withdraw(150.00));
+//		System.out.println("Deposit 22.50: " + bank.getCustomerArray().get(0).getAccount().deposit(22.50));
+//		System.out.println("Withdraw 47.62: " + bank.getCustomerArray().get(0).getAccount().withdraw(47.62));
+//		System.out.println("Withdraw 400.00: " + bank.getCustomerArray().get(0).getAccount().withdraw(400.00));
+//		
+//		System.out.println("-----------------------------------------------------------");
+//		System.out.println("Retrieving the customer Owen Bryant with his checking account.");
+//		
+//		
+//		System.out.println("Withdraw 150.00: " + bank.getCustomerArray().get(1).getAccount().withdraw(150.00));
+//		System.out.println("Deposit 22.50: " + bank.getCustomerArray().get(1).getAccount().deposit(22.50));
+//		System.out.println("Withdraw 47.62: " + bank.getCustomerArray().get(1).getAccount().withdraw(47.62));
+//		System.out.println("Withdraw 400.00: " + bank.getCustomerArray().get(1).getAccount().withdraw(400.00));
+//	
+//		System.out.println("-----------------------------------------------------------");
+//		System.out.println("Retrieving the customer Tim Soley with his checking account that has overdraft protection.");
+//		
+//		
+//		System.out.println("Withdraw 150.00: " + bank.getCustomerArray().get(2).getAccount().withdraw(150.00));
+//		System.out.println("Deposit 22.50: " + bank.getCustomerArray().get(2).getAccount().deposit(22.50));
+//		System.out.println("Withdraw 47.62: " + bank.getCustomerArray().get(2).getAccount().withdraw(47.62));
+//		System.out.println("Withdraw 400.00: " + bank.getCustomerArray().get(2).getAccount().withdraw(400.00));
+//		
+//		System.out.println("-----------------------------------------------------------");
+//		System.out.println("Retrieving the customer Maria Soley with her joint checking account with her husband.");
+//		
+//		
+//		System.out.println("Deposit 150.00: " + bank.getCustomerArray().get(3).getAccount().deposit(150.00));
+//		System.out.println("Withdraw 750.00: " +bank.getCustomerArray().get(3).getAccount().withdraw(750.00));
+//		
+//	   
+//		for(int i=0;i<bank.getCustomerArray().size();i++)
+//		{
+//			System.out.println(bank.getCustomerArray().get(i).getFirstName()+" "+
+//		bank.getCustomerArray().get(i).getLastName()+ " has the balance of " +
+//					bank.getCustomerArray().get(i).getAccount().balance);
+//		}
+		
+		
+		//Bank 05;
+//		Bank b=new Bank();
+//		
+//		b.addCustomer(new Customer("Jane","Smith"));
+//		Customer cus0=b.getCustomerArray().get(0);
+//		System.out.println(cus0.getLastName()+cus0.getFirstName());
+//		
+//		
+//		cus0.setSavingAccount((new SavingAccount(500, 0.05)));
+//		cus0.setCheckingAccount((new CheckingAccount(200.00, cus0.getSavingAccount())));
+//		
+//		cus0.getCheckingAccount().withdraw(150.00);
+//		cus0.getCheckingAccount().deposit(22.50);
+//		cus0.getCheckingAccount().withdraw(147.62);
+//		System.out.println(cus0.getCheckingAccount().balance+" "+cus0.getSavingAccount().balance);
+//		
+		
+	
+
+		
+		
+	}
+
+	}

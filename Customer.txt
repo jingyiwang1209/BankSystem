@@ -1,0 +1,70 @@
+package com.Banking;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Customer
+{
+  private String firstName;
+  private String lastName;
+  private List<Account> accArray;
+  //private SavingAccount savingAccount;
+  //private CheckingAccount checkingAccount;
+
+  
+public Customer(String firstName, String lastName)
+  {
+  	super();
+  	this.firstName = firstName;
+  	this.lastName = lastName;
+  	accArray=new ArrayList<>();
+  }
+  
+public Iterator<Account>accountIteration()
+{
+	return accArray.iterator();
+}
+public void addAccount(Account account)
+  {
+	  accArray.add(account);
+  }
+  
+
+  public List<Account> getAccount()
+{
+	return accArray;
+}
+  
+public String getFirstName()
+{
+	return firstName;
+}
+
+public String getLastName()
+{
+	return lastName;
+}
+
+
+
+
+
+//When overprotection is the balance of saving account.
+//public SavingAccount getSavingAccount() {
+//	return savingAccount;
+//}
+//
+//public void setSavingAccount(SavingAccount savingAccount) {
+//	this.savingAccount = savingAccount;
+//}
+//
+//public CheckingAccount getCheckingAccount() {
+//	return checkingAccount;
+//}
+//
+//public void setCheckingAccount(CheckingAccount checkingAccount) {
+//	this.checkingAccount = checkingAccount;
+//}
+
+}
